@@ -7,6 +7,7 @@ import './product.css';
 
 const Product = () => {
 
+  // eslint-disable-next-line
   const [data, setData] = useState({});
   const [ids, setIDs] = useState([]);
   const [formIsFilled, setFormIsFilled] = useState(false);
@@ -54,8 +55,8 @@ const Product = () => {
 
   const handleID = (element) => {
 
-    const productType = document.getElementsByClassName("productType")[0];
-    const productValue = productType.options[productType.selectedIndex].value;
+    //const productType = document.getElementsByClassName("productType")[0];
+    //const productValue = productType.options[productType.selectedIndex].value;
     if (ids.includes(element.value)) element.insertAdjacentHTML("afterend", `<div class = 'error'>ID is not unique.</div>`)
     else { const error = element.parentNode.getElementsByClassName("error")[0]; if (error) error.remove(); };
 
@@ -65,8 +66,8 @@ const Product = () => {
 
     const numericalFields = ["height", "length", "width", "price", "size"];
     (numericalFields.includes(event.target.id)) ? handleNum(event.target) : handleID(event.target);
-    const form = new FormData(document.getElementById("product-form"));
-    const formData = Object.fromEntries(form.entries());
+/*     const form = new FormData(document.getElementById("product-form"));
+    const formData = Object.fromEntries(form.entries()); */
     const inputFields = document.getElementsByTagName("input");
     var inputFieldsAreAllFilled = true;
     for (const inputField of inputFields) { if (inputField.value === "") inputFieldsAreAllFilled = false; }
