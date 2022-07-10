@@ -31,6 +31,39 @@
 #add-product-btn {
 
     margin-right: 12px;
+    height: 40px;
+    width: 71px;
+    text-align: center;
+    transform: translateY(-5px);
+
+}
+
+#add-product-btn a {
+
+    height: 41px;
+    width: 71px;
+    display: block;
+    position: absolute;
+    transform: translate(-16px, -20px);
+    padding-top: 7px;
+
+}
+
+#save-product-btn {
+
+    margin-right: 12px; 
+    height: 41px;
+    width: 79px;
+    text-align: center;
+
+}
+
+#save-product-btn a {
+
+    height: 41px;
+    width: 79px;
+    display: block;
+    transform: translate(-16px, 0px);
 
 }
 

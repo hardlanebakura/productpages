@@ -36,7 +36,7 @@ const Header = (props) => {
             Product List
         </div>
         <div id = "header__buttons">
-            <button id = "add-product-btn" onClick = { save } >
+            <button id = "save-product-btn" onClick = { save } >
             { (props.formIsFilled) ? <Link to = "/">SAVE</Link> : "SAVE" }
             </button>
             <button id = "delete-product-btn">

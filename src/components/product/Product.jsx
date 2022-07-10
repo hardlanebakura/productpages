@@ -15,6 +15,7 @@ const Product = () => {
   useEffect(() => {
 
     getAllProducts();
+    handleFooter(509);
 
   }, []);
   const getAllProducts = () => {
@@ -39,6 +40,7 @@ const Product = () => {
 
     (event.target.value === "0") ? setActive(false) : setActive(true);
     setType(event.target.value);
+    (event.target.value === "DVD discs") ? handleFooter(488) : (event.target.value === "Chairs") ? handleFooter(446) : (event.target.value === "0") ? handleFooter(509) : handleFooter(488);
 
   }
 
@@ -50,6 +52,13 @@ const Product = () => {
     var onlyNumbersRegex = /^-?\d+\.?\d*$/;
     if (!element.value.match(onlyNumbersRegex) && (element.value !== "")) element.insertAdjacentHTML("afterend", `<div class = 'error'>This field allows only numbers.</div>`)
     else { const error = element.parentNode.getElementsByClassName("error")[0]; if (error) error.remove(); };
+
+  }
+
+  const handleFooter = (element) => {
+
+    console.log(`${element}px`);
+    document.getElementById("footer").style.marginTop = `${element}px`;
 
   }
 
