@@ -65,7 +65,6 @@ const Product = () => {
 
   const handleFooter = (element) => {
 
-    console.log(`${element}px`);
     document.getElementById("footer").style.marginTop = `${element}px`;
 
   }
@@ -84,7 +83,6 @@ const Product = () => {
     const inputFields = document.getElementsByTagName("input");
     var inputFieldsAreAllFilled = true;
     for (const inputField of inputFields) { if (inputField.value === "") inputFieldsAreAllFilled = false; }
-    console.log(inputFieldsAreAllFilled);
     var selectIsNotEmpty = document.getElementsByTagName("select")[0].value !== "0";
     (document.getElementsByClassName("error").length === 0 && inputFieldsAreAllFilled && selectIsNotEmpty) ? setFormIsFilled(true) : setFormIsFilled(false);
 

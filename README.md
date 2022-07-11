@@ -5,7 +5,6 @@ This project uses:
     <li>PHP</li>
     <li>MySQL</li>
     <li>React</li>
-    <li>Automation testing</li>
 </ul>
 
 Thank you for taking your time to check my website!

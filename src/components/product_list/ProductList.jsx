@@ -5,7 +5,7 @@ import Header from './header/Header';
 import List from './list/List';
 import Footer from '../Footer';
 
-const Product = () => {
+const ProductList = () => {
 
   const [data, setData] = useState({});
 
@@ -41,4 +41,4 @@ const Product = () => {
   }
 }
 
-export default Product
+export default ProductList

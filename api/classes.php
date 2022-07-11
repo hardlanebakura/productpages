@@ -1,6 +1,6 @@
 <?php
 
-    class Item {
+    abstract class Item {
 
         public $sku;
         public $title;
@@ -11,8 +11,11 @@
             $this->sku = $data["sku"];
             $this->title = $data["title"];
             $this->price = $data["price"];
+            $this->getAdditionalInfo($data);
 
         }
+
+        abstract function getAdditionalInfo($data);
 
     }
     
@@ -23,9 +26,10 @@
         function __construct($data) {
 
             parent::__construct($data);
-            $this->size = $data["size"];
 
         }
+
+        function getAdditionalInfo($data) { $this->size = $data["size"]; }
 
     }
 
@@ -36,9 +40,10 @@
         function __construct($data) {
 
             parent::__construct($data);
-            $this->weight = $data["weight"];
 
         }
+
+        function getAdditionalInfo($data) { $this->weight = $data["weight"]; }
 
     }
 
@@ -49,9 +54,10 @@
         function __construct($data) {
 
             parent::__construct($data);
-            $this->dimensions = $data["dimensions"];
 
         }
+
+        function getAdditionalInfo($data) { $this->dimensions = $data["dimensions"]; }
 
     }
 
