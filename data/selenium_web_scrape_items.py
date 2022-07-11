@@ -43,7 +43,6 @@ def get_dvds():
             img = get_element_if_exists("/html/body/div/div/div[3]/div[1]/div[2]/div[{}]/div/div[{}]/div/a[1]/div[1]/div/div/img".format(row, i)).get_attribute("src")
             list1.append({ "title": title, "price": price, "img": img })
     d = json.dumps({ "DVD_discs": list1 }, indent = 4)
-    print(list1)
     with open("data.json", "w") as outfile:
         outfile.write(d)
 

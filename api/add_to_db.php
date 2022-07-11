@@ -13,6 +13,7 @@
         $data = json_decode(file_get_contents('php://input'), true);
         if (array_key_exists("DVD", $data)) {
 
+            $DVD = new DVD_disc($data);
             $price = "$" . $data["price"];
             $query = "INSERT INTO DVD_discs (SKU, title, price, size) VALUES (?, ?, ?, ?)";
             $db->query($query, $data["sku"], $data["name"], $price, $data["DVD"]);

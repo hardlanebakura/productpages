@@ -9,7 +9,7 @@ const Header = (props) => {
 
     var checkedItems = document.getElementsByClassName("checked");
     checkedItems = Array.from(checkedItems).map((item) => item.parentNode.getElementsByTagName("div"));
-    console.log(checkedItems);
+    
     if (checkedItems.length > 0) {
 
       var data = [];
