@@ -50,8 +50,16 @@ const Product = () => {
   const handleNum = (element) => {
 
     var onlyNumbersRegex = /^-?\d+\.?\d*$/;
-    if (!element.value.match(onlyNumbersRegex) && (element.value !== "")) element.insertAdjacentHTML("afterend", `<div class = 'error'>This field allows only numbers.</div>`)
+    const productType = document.getElementsByClassName("productType")[0];
+    const productValue = productType.options[productType.selectedIndex].value;
+    if (productValue !== "Chairs") {
+    if (!element.value.match(onlyNumbersRegex) && (element.value !== "")) { if (!element.parentNode.getElementsByClassName("error").length > 0) element.insertAdjacentHTML("afterend", `<div class = 'error'>This field allows only numbers.</div>`) }
     else { const error = element.parentNode.getElementsByClassName("error")[0]; if (error) error.remove(); };
+    }
+    else {
+      if (!(element.value.match(onlyNumbersRegex) && (element.value !== ""))) { if (element.nextElementSibling !== null) { if (!(element.nextElementSibling.classList.contains("error"))) element.insertAdjacentHTML("afterend", `<div class = 'error'>This field allows only numbers.</div>`) } }
+      else { if (element.nextElementSibling !== null && element.nextElementSibling.classList.contains("error")) element.nextElementSibling.remove(); }
+    }
 
   }
 
@@ -64,8 +72,6 @@ const Product = () => {
 
   const handleID = (element) => {
 
-    //const productType = document.getElementsByClassName("productType")[0];
-    //const productValue = productType.options[productType.selectedIndex].value;
     if (ids.includes(element.value)) element.insertAdjacentHTML("afterend", `<div class = 'error'>ID is not unique.</div>`)
     else { const error = element.parentNode.getElementsByClassName("error")[0]; if (error) error.remove(); };
 
@@ -75,8 +81,6 @@ const Product = () => {
 
     const numericalFields = ["height", "length", "width", "price", "size"];
     (numericalFields.includes(event.target.id)) ? handleNum(event.target) : handleID(event.target);
-/*     const form = new FormData(document.getElementById("product-form"));
-    const formData = Object.fromEntries(form.entries()); */
     const inputFields = document.getElementsByTagName("input");
     var inputFieldsAreAllFilled = true;
     for (const inputField of inputFields) { if (inputField.value === "") inputFieldsAreAllFilled = false; }

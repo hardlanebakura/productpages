@@ -28,6 +28,16 @@ const Header = (props) => {
 
   }
 
+  else {
+
+    const inputFields = document.getElementsByTagName("input");
+    var inputFieldsAreAllFilled = true;
+    var productDescription = document.getElementById("product-description");
+    for (const inputField of inputFields) { if (inputField.value === "") inputFieldsAreAllFilled = false; }
+    if ((!inputFieldsAreAllFilled) && document.getElementsByClassName("input_fill_error").length === 0) productDescription.insertAdjacentHTML("beforeend", `<div class = "input_fill_error">Please fill all fields.</div>`);
+
+  }
+
 }
 
   return (
