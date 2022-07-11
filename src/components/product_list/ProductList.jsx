@@ -20,9 +20,9 @@ const ProductList = () => {
     .then(response => {
 
       const allData = response.data;
-      console.log(allData);
+      //console.log(allData);
       for (const k of Object.keys(allData)) { allData[k] = allData[k].slice(-4); for (const item of allData[k]) item.type = k };
-      console.log(allData);
+      //console.log(allData);
       setData(allData);
 
     })
