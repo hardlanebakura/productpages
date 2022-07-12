@@ -72,7 +72,7 @@ const Product = () => {
 
   const handleID = (element) => {
 
-    if (ids.includes(element.value)) element.insertAdjacentHTML("afterend", `<div class = 'error'>ID is not unique.</div>`)
+    if (ids.includes(element.value)) { if (!element.parentNode.getElementsByClassName("error").length > 0) element.insertAdjacentHTML("afterend", `<div class = 'error'>ID is not unique.</div>`) }
     else { const error = element.parentNode.getElementsByClassName("error")[0]; if (error) error.remove(); };
 
   }

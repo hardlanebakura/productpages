@@ -33,8 +33,10 @@ const Header = (props) => {
     const inputFields = document.getElementsByTagName("input");
     var inputFieldsAreAllFilled = true;
     var productDescription = document.getElementById("product-description");
+    var typeSwitcher = document.getElementById("type-switcher");
     for (const inputField of inputFields) { if (inputField.value === "") inputFieldsAreAllFilled = false; }
-    if ((!inputFieldsAreAllFilled) && document.getElementsByClassName("input_fill_error").length === 0) productDescription.insertAdjacentHTML("beforeend", `<div class = "input_fill_error">Please fill all fields.</div>`);
+    if ((!inputFieldsAreAllFilled) && document.getElementsByClassName("input_fill_error").length === 0) { if (productDescription !== null) productDescription.insertAdjacentHTML("beforeend", `<div class = "input_fill_error">Please fill all fields.</div>`)
+    else typeSwitcher.insertAdjacentHTML("beforeend", `<div class = "input_fill_error">Please fill all fields.</div>`) }
 
   }
 
@@ -49,9 +51,11 @@ const Header = (props) => {
             <button id = "save-product-btn" onClick = { save } >
             { (props.formIsFilled) ? <Link to = "/">SAVE</Link> : "SAVE" }
             </button>
-            <button id = "delete-product-btn">
-                <Link to = "/">CANCEL</Link>
-            </button>
+            <Link to = "/">
+              <button id = "delete-product-btn">
+                  CANCEL
+              </button>
+            </Link>
         </div>
     </div>
   )
