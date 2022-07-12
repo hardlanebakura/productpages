@@ -46,9 +46,11 @@ const Header = (props) => {
             Product List
         </div>
         <div id = "header__buttons">
+          <Link to = "/add-product">
             <button id = "add-product-btn">
-                <Link to = "/add-product">ADD</Link>
+            ADD
             </button>
+            </Link>
             <button id = "delete-product-btn" onClick = { massDelete } >
                 MASS DELETE
             </button>
