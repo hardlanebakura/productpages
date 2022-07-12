@@ -7,6 +7,7 @@ const Header = (props) => {
 
   const massDelete = (event) => {
 
+    event.preventDefault();
     var checkedItems = document.getElementsByClassName("checked");
     checkedItems = Array.from(checkedItems).map((item) => item.parentNode.getElementsByTagName("div"));
     
