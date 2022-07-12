@@ -9,7 +9,7 @@ const Header = (props) => {
 
     var checkedItems = document.getElementsByClassName("checked");
     checkedItems = Array.from(checkedItems).map((item) => item.parentNode.getElementsByTagName("div"));
-
+    
     if (checkedItems.length > 0) {
 
       var data = [];
@@ -45,7 +45,7 @@ const Header = (props) => {
             Product List
         </div>
         <div id = "header__buttons">
-            <button>
+            <button id = "add-product-btn">
                 <Link to = "/add-product">ADD</Link>
             </button>
             <button id = "delete-product-btn" onClick = { massDelete } >
