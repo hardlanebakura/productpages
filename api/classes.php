@@ -10,10 +10,16 @@
 
             $this->sku = $data["sku"];
             $this->title = $data["title"];
-            $this->price = $data["price"];
+            $this->price = '$' . $data["price"];
             $this->getAdditionalInfo($data);
 
         }
+
+        function getSKU() { return $this->sku; }
+
+        function getTitle() { return $this->title; }
+
+        function getPrice() { return $this->price; }
 
         abstract function getAdditionalInfo($data);
 
@@ -64,7 +70,7 @@
     $d = array(
         "sku"=>"asd1",
         "title"=>"title1",
-        "price"=>'$a1',
+        "price"=>'a1',
         "weight"=>"1KG"
     );
 

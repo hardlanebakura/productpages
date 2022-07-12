@@ -47,7 +47,7 @@ const Header = (props) => {
         </div>
         <div id = "header__buttons">
             <button id = "save-product-btn" onClick = { save } >
-            { (props.formIsFilled) ? <Link to = "/">SAVE</Link> : "SAVE" }
+            { (props.formIsFilled) ? <Link to = "/">SAVE1</Link> : "SAVE1" }
             </button>
             <button id = "delete-product-btn">
                 <Link to = "/">CANCEL</Link>
