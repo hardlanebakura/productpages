@@ -47,7 +47,7 @@ const Header = (props) => {
         </div>
         <div id = "header__buttons">
           <Link to = "/add-product">
-            <button id = "add-product-btn">
+            <button style = {{margin:"100px"}} >
             ADD
             </button>
             </Link>
