@@ -14,14 +14,14 @@ const Header = (props) => {
     //console.log(formData);
       axios({
         method: "post",
-        url: "http://localhost/php2/add_to_db.php",
+        url: "http://localhost/s/react1/api/add_to_db.php",
         headers: { "content-type": "application/json" },
         data: formData
       })
       .then(result => console.log(result))
       .catch(error => console.log(error));
 
-      axios.get("http://localhost/php2/api_items.php")
+      axios.get("http://localhost/s/react1/api/api_items.php")
       .then(response => response.data)
       .then(response => console.log(response))
       .catch(error => console.log(error));

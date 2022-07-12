@@ -75,6 +75,12 @@
     );
 
     $item = new Book($d);
-    print_r($item)
+    print_r($item);
+
+    function r(string $data) {
+
+        echo $data;
+
+    }
 
 ?>

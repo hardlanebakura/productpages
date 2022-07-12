@@ -20,7 +20,7 @@ const Product = () => {
   }, []);
   const getAllProducts = () => {
 
-    axios.get("http://localhost/php2/api_items.php")
+    axios.get("http://localhost/s/react1/api/api_items.php")
     .then(response => {
 
       const allData = response.data;

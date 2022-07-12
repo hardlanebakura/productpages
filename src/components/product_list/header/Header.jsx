@@ -25,7 +25,7 @@ const Header = (props) => {
 
       axios({
         method: "post",
-        url: "http://localhost/php2/mass_delete.php",
+        url: "http://localhost/s/react1/api/mass_delete.php",
         headers: { "content-type": "application/json" },
         data: data
       })
