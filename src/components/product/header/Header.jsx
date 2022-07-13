@@ -11,7 +11,7 @@ const Header = (props) => {
     const form = new FormData(document.getElementById("product-form"));
     const formData = Object.fromEntries(form.entries());
     if (props.formIsFilled) {
-    //console.log(formData);
+    console.log(formData);
       axios({
         method: "post",
         url: "http://localhost/s/react1/api/add_to_db.php",

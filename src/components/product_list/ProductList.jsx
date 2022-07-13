@@ -11,16 +11,21 @@ const ProductList = () => {
 
   useEffect(() => {
 
-    getAllProducts();
+    (async () => {
+      await waitMS(400);
+      getAllProducts();
+    })()
 
   }, []);
-  const getAllProducts = () => {
+  function waitMS(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+
+  const getAllProducts = async () => {
 
     axios.get("http://localhost/s/react1/api/api_items.php")
     .then(response => {
 
       const allData = response.data;
-      //console.log(allData);
+      console.log(allData);
       for (const k of Object.keys(allData)) { allData[k] = allData[k].slice(-4); for (const item of allData[k]) item.type = k };
       //console.log(allData);
       setData(allData);

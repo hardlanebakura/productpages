@@ -10,6 +10,7 @@
 
 # production
 /build
+s.php
 
 data/__pycache__
 

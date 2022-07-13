@@ -14,6 +14,7 @@ const Product = () => {
 
   useEffect(() => {
 
+    console.log("1");
     getAllProducts();
     handleFooter(509);
 
@@ -79,7 +80,7 @@ const Product = () => {
 
   const handleChange = (event) => {
 
-    const numericalFields = ["height", "length", "width", "price", "size"];
+    const numericalFields = ["height", "length", "width", "price", "size", "weight"];
     (numericalFields.includes(event.target.id)) ? handleNum(event.target) : handleID(event.target);
     const inputFields = document.getElementsByTagName("input");
     var inputFieldsAreAllFilled = true;
@@ -100,7 +101,7 @@ const Product = () => {
         </div>
         <div className = "product-field">
           <label htmlFor = "name">Name</label>
-          <input type = "text" id = "name" name = "name" placeholder = "#name" />
+          <input type = "text" id = "name" name = "title" placeholder = "#name" />
         </div>
         <div className = "product-field">
           <label htmlFor = "price">Price ($)</label>

@@ -23,6 +23,8 @@
 
         abstract function getAdditionalInfo($data);
 
+        abstract function getTable();
+
     }
     
     class DVD_disc extends Item {
@@ -32,10 +34,26 @@
         function __construct($data) {
 
             parent::__construct($data);
+            $this->getAdditionalInfo($data);
 
         }
 
         function getAdditionalInfo($data) { $this->size = $data["size"]; }
+
+        function getTable() { 
+
+            $class_v = get_class_vars(get_class($this)); 
+            //print_r($class_v);
+            return "DVD_discs"; 
+
+        }
+
+        function getProperties() {
+
+            $class_v = get_class_vars(get_class($this)); 
+            return $class_v;
+
+        }
 
     }
 
@@ -46,10 +64,20 @@
         function __construct($data) {
 
             parent::__construct($data);
+            $this->getAdditionalInfo($data);
 
         }
 
         function getAdditionalInfo($data) { $this->weight = $data["weight"]; }
+
+        function getTable() { return "books"; }
+
+        function getProperties() {
+
+            $class_v = get_class_vars(get_class($this)); 
+            return $class_v;
+
+        }
 
     }
 
@@ -60,27 +88,24 @@
         function __construct($data) {
 
             parent::__construct($data);
+            $this->getAdditionalInfo($data);
 
         }
 
-        function getAdditionalInfo($data) { $this->dimensions = $data["dimensions"]; }
+        function getAdditionalInfo($data) { $this->dimensions = $data["height"] . "x" . $data["width"] . "x" . $data["length"]; }
+
+        function getTable() { return "chairs"; }
+
+        function getProperties() {
+
+            $class_v = get_class_vars(get_class($this)); 
+            return $class_v;
+
+        }
 
     }
 
-    $d = array(
-        "sku"=>"asd1",
-        "title"=>"title1",
-        "price"=>'a1',
-        "weight"=>"1KG"
-    );
-
-    $item = new Book($d);
-    print_r($item);
-
-    function r(string $data) {
-
-        echo $data;
-
-    }
+    require_once("Database.php");
+    $db = new db();
 
 ?>

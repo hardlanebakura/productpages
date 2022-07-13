@@ -7,39 +7,18 @@
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
     header('Content-Type: application/json');
 
-    function add_data_to_db() {
+    function add_data_to_db($data) {
 
         $db = new db();
-        $data = json_decode(file_get_contents('php://input'), true);
-        if (array_key_exists("DVD", $data)) {
-
-            $price = "$" . $data["price"];
-            $query = "INSERT INTO DVD_discs (SKU, title, price, size) VALUES (?, ?, ?, ?)";
-            $db->query($query, $data["sku"], $data["name"], $price, $data["DVD"]);
-
-        }
-
-        else if (array_key_exists("book", $data)) {
-
-            $price = "$" . $data["price"];
-            $query = "INSERT INTO books (SKU, title, price, weight) VALUES (?, ?, ?, ?)";
-            $db->query($query, $data["sku"], $data["name"], $price, $data["book"]);
-
-        }
-
-        else {
-
-            
-            $price = "$" . $data["price"];
-            $dimensions = $data["height"] . "x" . $data["width"] . "x" . $data["length"];
-            $query = "INSERT INTO chairs (SKU, title, price, dimensions) VALUES (?, ?, ?, ?)";
-            $db->query($query, $data["sku"], $data["name"], $price, $dimensions);
-
-        }
+        $types = $db->_getTypes($data);
+        $query = $db->insertTable($types)["insert"];
+        $query_array = $db->insertTable($types)["query"];
+        $db->query($query, $query_array);
+        $db->close();
 
     }
 
-    add_data_to_db();
+    add_data_to_db(json_decode(file_get_contents('php://input'), true));
     
 
 ?>

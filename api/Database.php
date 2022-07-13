@@ -1,4 +1,7 @@
 <?php
+
+require_once("classes.php");
+
 class db {
 
     protected $connection;
@@ -120,12 +123,58 @@ class db {
         }
     }
 
+	public function _getTypes($data) {
+
+		return (array_key_exists("size", $data)) ? new DVD_disc($data) : ((array_key_exists("weight", $data)) ? new Book($data) : new Chair($data));
+
+	}
+
 	private function _gettype($var) {
 	    if (is_string($var)) return 's';
 	    if (is_float($var)) return 'd';
 	    if (is_int($var)) return 'i';
 	    return 'b';
 	}
+
+	public function insertTable($data) {
+
+		if (array_key_exists("title", $data)) {
+		$ctr = 0;
+		$field_query = "";
+		$value_query = "";			
+		$table = $data->getTable();
+		$query_array = [];
+		$this->swapIndexes($data);
+        foreach($data as $key => $value) {
+            if($ctr == 0) {
+                $field_query = $key;
+                $value_query = "?";
+            } else {
+                $field_query .= ", ".$key;
+                $value_query .= ", ?";
+            }
+			$query_array[] = $value;
+            $ctr++;
+        }
+	
+        return ["insert" => "INSERT INTO $table"." (".$field_query.") VALUES (".$value_query.")", "query" => $query_array];
+		}
+
+	}
+
+	function swapIndexes($arr) { 
+
+		$arr = array($arr);
+		$lastvalue = end($arr);
+		$lastkey = key($arr);
+		
+		$arr1 = array($lastkey=>$lastvalue);
+		
+		array_pop($arr);
+		
+		$arr1 = array_merge($arr1,$arr);
+		return $arr1;
+		}   
 
 }
 
