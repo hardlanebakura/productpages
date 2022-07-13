@@ -24,3 +24,5 @@ def browsing_session_simulation():
     driver.quit()
 
 #browsing_session_simulation()
+
+#simulates the browsing session, will be completed within a day
