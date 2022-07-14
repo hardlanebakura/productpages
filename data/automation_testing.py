@@ -17,7 +17,7 @@ URL = "https://spontaneous-froyo-55251e.netlify.app/"
 
 def browsing_session_simulation():
     driver.get(URL)
-    driver.implicitly_wait(0.4)
+    driver.implicitly_wait(0.3)
     title = get_element_text("/html/body/div/div[1]/div[1]")
     logging.info(title)
 
